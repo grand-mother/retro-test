@@ -1,0 +1,8 @@
+# Ignore binaries
+*.b
+
+# Ignore shared data
+share
+
+# Ignore figures
+*.png
