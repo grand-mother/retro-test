@@ -45,7 +45,7 @@ if __name__ == "__main__":
     WBB = 2. / 3. * 1E-04
     theta = 91.5
     sample = Sampler(1000)
-    energy = numpy.logspace(6., 10., 41)
+    energy = numpy.logspace(6., 12., 61)
 
     density = numpy.zeros((len(energy), 2))
     for i, ei in enumerate(energy):
