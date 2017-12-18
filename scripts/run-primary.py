@@ -53,10 +53,13 @@ if __name__ == "__main__":
         t0 = time.time()
         primaries = sample(ei, theta)
         n = primaries[1]
-        w = numpy.array([primary[0] * WBB for primary in primaries[0]])
-        mu = sum(w) / n
-        sigma = numpy.sqrt((sum(w**2) / n - mu**2) / n)
-        density[i, :] = (mu, sigma)
+        if n > 0:
+            w = numpy.array([primary[0] * WBB for primary in primaries[0]])
+            mu = sum(w) / n
+            sigma = numpy.sqrt((sum(w**2) / n - mu**2) / n)
+            density[i, :] = (mu, sigma)
+        else:
+            mu, sigma = 0., 0.
         print "  density = {:.3E} +- {:.3E} GeV^-1 m^-3 sr^-1 s^-1".format(
             mu, sigma)
         print "  --> Done in {:.1f} s".format(time.time() - t0)
